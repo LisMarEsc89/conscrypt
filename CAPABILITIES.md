@@ -16,8 +16,8 @@ and other identifiers that are supported by Conscrypt.
 * `TLSv1.3`
 
 Conscrypt supports TLS v1.0-1.3.  For backwards compatibility it will accept
-`SSLv3` in calls to methods like
-[`setEnabledProtocols()`](https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLSocket.html#setEnabledProtocols-java.lang.String:A-)
+`SSLv3` in calls to methods likesetEnabledProtocols()
+ "https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLSocket.html#setEnabledProtocols-java.lang.String:A-)
 but will ignore it.
 
 ### SSLContext
@@ -33,13 +33,17 @@ but will ignore it.
 Conscrypt provides the above set of SSLContext algorithm names for JSSE
 purposes, including the special value `Default`, which is used to determine the
 value of
-[`SSLContext.getDefault()`](https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLContext.html#getDefault--).
-The `Default`, `SSL`, `TLS`, and `TLSv1.3` values return a context where TLS
-v1.0-1.3 are all enabled; the others return a context with TLS v1.0-1.2 enabled.
+[`SSLContext.getDefault()`]
+ https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLContext.html
+ # get_Default
+The `Default`, `SSL`, `TLS`, TLSv1.3
+ Values return a context where TLSv1.0-1.3 are all enabled;
+ the others returns a context with TLS v1.0-1.2 enabled.
 
-### Cipher Suites
-
-#### Enabled
+### Cipher Suites ###
+ |-------------------|
+ |#### Enabled ####----|
+ |-------------------|
 * TLS 1.0-1.2
   * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
   * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
@@ -55,7 +59,11 @@ v1.0-1.3 are all enabled; the others return a context with TLS v1.0-1.2 enabled.
   * `TLS_RSA_WITH_AES_128_GCM_SHA256`
   * `TLS_RSA_WITH_AES_256_CBC_SHA`
   * `TLS_RSA_WITH_AES_256_GCM_SHA384`
-* TLS 1.3
+  
+  |-----------------------|
+* | *TLS | "1.3" |==|==|==|
+* |------|----------------|
+
   * `TLS_AES_128_GCM_SHA256`
   * `TLS_AES_256_GCM_SHA384`
   * `TLS_CHACHA20_POLY1305_SHA256`
@@ -64,10 +72,11 @@ The above cipher suites are enabled by default when the associated version of
 the protocol is enabled.  The TLS 1.3 cipher suites cannot be customized; they
 are always enabled when TLS 1.3 is enabled, and any attempt to disable them via
 a call to
-[`setEnabledCipherSuites()`](https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLSocket.html#setEnabledCipherSuites-java.lang.String:A-)
-is ignored.
+[`setEnabledCipherSuites()`]
+ https://docs.oracle.com/javase/9/docs/api/javax/net/ssl/SSLSocket.html
+# setEnabledCipherSuites-java.lang.String:Ais ignored
 
-#### Supported But Not Enabled
+#### Supported But Not Enabled ####
 * TLS 1.0-1.2
   * `SSL_RSA_WITH_3DES_EDE_CBC_SHA`
   * `TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA`
@@ -160,11 +169,11 @@ Conscrypt's EC AlgorithmParameters implementation only supports named curves.
 ### KeyAgreement
 * `ECDH`
 
-### KeyFactory
+ | $ KeyFactory $ |
 * `EC`
 * `RSA`
 
-### KeyGenerator
+ | $ KeyGenerator $ | 
 * `AES`
 * `ARC4`
 * `ChaCha20`
@@ -224,7 +233,9 @@ Conscrypt's EC AlgorithmParameters implementation only supports named curves.
 
 ### Elliptic Curves
 
-Conscrypt supports the following curves in EC crypto operations (such as ECDSA signatures) and TLS:
+Conscrypt supports the following curves in EC crypto operations
+such as:
+ ECDSA Signatures & TLS:
 
 | Curve | EC Crypto |  TLS  |
 | ----- | :-------: | :---: |
@@ -233,3 +244,6 @@ Conscrypt supports the following curves in EC crypto operations (such as ECDSA s
 | secp384r1 | X | X |
 | secp521r1 | X |   |
 | x25519 |   | X |
+
+
+
