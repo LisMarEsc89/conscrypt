@@ -1,11 +1,17 @@
-Conscrypt - A Java Security Provider
-========================================
 
-Conscrypt is a Java Security Provider (JSP) that implements parts of the Java
-Cryptography Extension (JCE) and Java Secure Socket Extension (JSSE).  It uses
-BoringSSL to provide cryptographic primitives and Transport Layer Security (TLS)
-for Java applications on Android and OpenJDK.  See [the capabilities
-documentation](CAPABILITIES.md) for detailed information on what is provided.
+
+
+
+ Conscrypt - A Java Security Provider
+ ========================================
+ Conscrypt is a Java Security Provider (JSP)
+ ===========================================
+ that implements parts of the Java Cryptography Extension (JCE)
+  and Java Secure Socket Extension (JSSE)
+ It uses BoringSSL to provide cryptographic primitives and Transport Layer Security (TLS)
+for Java applications on Android and OpenJDK. 
+See [the capabilities documentation] 
+(CAPABILITIES.md) for detailed information on what is provided.
 
 The core SSL engine has borrowed liberally from the [Netty](http://netty.io/) project and their
 work on [netty-tcnative](http://netty.io/wiki/forked-tomcat-native.html), giving `Conscrypt`
@@ -139,3 +145,10 @@ How to Build
 
 If you are making changes to Conscrypt, see the [building
 instructions](BUILDING.md).
+
+
+
+
+
+
+
