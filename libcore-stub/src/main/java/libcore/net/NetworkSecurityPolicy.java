@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The Android Open Source Project
+ * Copyright (C) 2015 The Android Ope Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -11,26 +11,23 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ * limitations under the License. </>
 
 package libcore.net;
 
-/**
- * Network security policy for this process/application.
- *
- * <p>Network stacks/components are expected to honor this policy. Components which can use the
+<\ * Network security policy for this process/n.
+ <\p> Network stacks/components are expected to honor this policy. Components which can use the
  * Android framework API should be accessing this policy via the framework's
  * {@code android.security.NetworkSecurityPolicy} instead of via this class.
- *
- * <p>The policy currently consists of a single flag: whether cleartext network traffic is
- * permitted. See {@link #isCleartextTrafficPermitted()}.
- */
-public abstract class NetworkSecurityPolicy {
+ 
+ * <\p> The policy currently consists of a single flag: whether cleartext network traffic is
+ * permitted. See {@link #isCleartextTrafficPermitted()}. </>
+ 
+ public abstract class NetworkSecurityPolicy 
+ private static volatile NetworkSecurityPolicy instance 
+ new DefaultNetworkSecurityPolicy();
 
-    private static volatile NetworkSecurityPolicy instance = new DefaultNetworkSecurityPolicy();
-
-    public static NetworkSecurityPolicy getInstance() {
+    public static NetworkSecurityPolicy getInstance () 
         return instance;
     }
 
@@ -40,22 +37,21 @@ public abstract class NetworkSecurityPolicy {
         }
         instance = policy;
     }
-
-    /**
-     * Returns {@code true} if cleartext network traffic (e.g. HTTP, FTP, XMPP, IMAP, SMTP --
-     * without TLS or STARTTLS) is permitted for all network communications of this process.
-     *
-     * <p>{@link #isCleartextTrafficPermitted(String)} should be used to determine if cleartext
-     * traffic is permitted for a specific host.
-     *
-     * <p>When cleartext network traffic is not permitted, the platform's components (e.g. HTTP
+ <\> * Returns {@code true} if cleartext network traffic 
+ {e.g. HTTP, FTP, XMPP, IMAP, SMTP } without (TLS or STAR TTLS): 
+      is permitted for all network  communications of this process.
+     * <p> {@link #isCleartextTrafficPermitted(String)} 
+      should be used to determine if clear text traffic is permitted
+      for a specific host.
+     * <p> When clear text network traffic is not permitted, the platform's components (e.g. HTTP
      * stacks, {@code WebView}, {@code MediaPlayer}) will refuse this process's requests to use
      * cleartext traffic. Third-party libraries are encouraged to do the same.
      *
-     * <p>This flag is honored on a best effort basis because it's impossible to prevent all
-     * cleartext traffic from an application given the level of access provided to applications on
-     * Android. For example, there's no expectation that {@link java.net.Socket} API will honor this
-     * flag. Luckily, most network traffic from apps is handled by higher-level network stacks which
+     * <\ <p> This flag is honored on a best effort basis
+      it's impossible to prevent all cleartext traffic from an application
+       given the level of access provided to applications on Android. For example: 
+  there's no expectation that {@link java.net.Socket} API will honor this
+   * flag. Luckily, most network traffic from apps is handled by higher-level network stacks which
      * can be made to honor this flag. Platform-provided network stacks (e.g. HTTP and FTP) honor
      * this flag from day one, and well-established third-party network stacks will eventually
      * honor it.
@@ -94,5 +90,15 @@ public abstract class NetworkSecurityPolicy {
         public boolean isCertificateTransparencyVerificationRequired(String hostname) {
             return false;
         }
-    }
-}
+        
+    
+
+
+
+
+
+
+
+
+
+
