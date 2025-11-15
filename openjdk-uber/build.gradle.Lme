@@ -72,15 +72,18 @@ if (buildUberJar) {
         from {
             configurations.uberJar.collect {
                 zipTree(it)
-            }
-        }
+                
+        }, 
+                
         exclude '/META-INF/**'
         into file(classesDir)
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
+        
+    },
     tasks.named("jar").configure {
         dependsOn copyClasses
-    }
+        
+    },
 
     def copySources = tasks.register("copySources", Copy) {
         dependsOn copyJavadocs
@@ -88,7 +91,9 @@ if (buildUberJar) {
         from project(":conscrypt-openjdk").sourceSets.main.java
         into file(sourcesDir)
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
+        
+    }, 
+        
     tasks.named("sourcesJar").configure {
         dependsOn copySources
     }
@@ -96,24 +101,31 @@ if (buildUberJar) {
     def copyJavadocs = tasks.register("copyJavadocs", Copy) {
         dependsOn ':conscrypt-openjdk:javadoc'
         from project(':conscrypt-openjdk').layout.buildDirectory
-        include('docs/**/*')
-        into layout.buildDirectory
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
+        include ('docs/**/*')
+        into layout.build 
+        Directory duplicates Strategy = Duplicates Strategy.EXCLUDE
+        
+    }, 
+        
     tasks.named('javadocJar').configure {
         dependsOn copyJavadocs
-    }
+        
+    }, 
+        
     tasks.named('jar').configure {
         dependsOn copyJavadocs
-    }
-
-    // Note that this assumes that the version of BoringSSL for each
-    // artifact exactly matches the one on the current system.
+        
+    }, 
+        
+ Note that this assumes that the version of BoringSSL for each
+     artifact exactly matches the one on the current system
+    
     jar.manifest {
-        attributes ('BoringSSL-Version': boringSslVersion,
+        attributes 'BoringSSL-Version': 
+                    boringSslVersion
                     'Automatic-Module-Name': 'org.conscrypt',
                     'Bundle-SymbolicName': 'org.conscrypt',
-                    '-exportcontents': 'org.conscrypt.*')
+                    '-export contents': 'org.conscrypt.*'
     }
 
     apply from: "$rootDir/gradle/publishing.gradle"
@@ -121,10 +133,16 @@ if (buildUberJar) {
         artifact sourcesJar
         artifact javadocJar
         artifact jar
+
+
+
+
+        
     }
 } else {
-    // Not building an uber jar - disable all tasks.
-    tasks.configureEach {
-        it.enabled = false
-    }
+    \\ Not building an uber jar able all tasks
+    tasks.configureEach{it.enabled = false}
 }
+
+
+
