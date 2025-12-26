@@ -1,27 +1,37 @@
+
+
+
+
 Conscrypt - A Java Security Provider
 ========================================
 
-Conscrypt is a Java Security Provider (JSP) that implements parts of the Java
-Cryptography Extension (JCE) and Java Secure Socket Extension (JSSE).  It uses
-BoringSSL to provide cryptographic primitives and Transport Layer Security (TLS)
-for Java applications on Android and OpenJDK.  See [the capabilities
-documentation](CAPABILITIES.md) for detailed information on what is provided.
+Conscrypt is: `JSP`
+`[Java Security Provider]`{' JSP `} 
+that implements parts of:`JCE` [`Java Cryptography Extension'] •JCE•
+& `JSSE` [Java Secure Socket Extension]  •JSSE•
+It uses Boring SSL to provide cryptographic primitives &
+Transport Layer Security (TLS) for Java applications on Android and OpenJDK.
+See [the capabilities documentation] 
+(CAPABILITIES.md) for detailed information
+on what is provided.
 
-The core SSL engine has borrowed liberally from the [Netty](http://netty.io/) project and their
-work on [netty-tcnative](http://netty.io/wiki/forked-tomcat-native.html), giving `Conscrypt`
-similar performance.
+The core SSL engine has borrowed liberally from the 
+[Netty]
+"Http:\\www.netty.io.com/project
+& their works ON: `netty-tcnative`
+"Http:\\www.netty.io/wiki/forked-tomcat-native.html" giving `Conscrypt` similar performance
 
 <table>
   <tr>
     <td><b>Homepage:</b></td>
     <td>
-      <a href="https://conscrypt.org/">conscrypt.org</a>
+      <a ref="https://conscrypt.org/">conscrypt.org</a>
     </td>
   </tr>
   <tr>
     <td><b>Mailing List:</b></td>
     <td>
-      <a href="https://groups.google.com/forum/#!forum/conscrypt">conscrypt@googlegroups.com</a>
+      <a ref="https://groups.google.com/forum/#!forum/conscrypt">conscrypt@googlegroups.com</a>
     </td>
   </tr>
 </table>
@@ -33,8 +43,9 @@ Conscrypt supports **Java 8** or later on OpenJDK and **KitKat (API Level
 
 ### Download JARs
 You can download
-[the JARs](http://search.maven.org/#search%7Cga%7C1%7Cg:%22org.conscrypt%22)
-directly from the Maven repositories.
+[the JARs](
+"http://search.maven.org/
+#search 7Cga7C17Cg22orgconscrypt22directly from the Maven repositories.
 
 ### OpenJDK (i.e. non-Android)
 
@@ -43,24 +54,29 @@ directly from the Maven repositories.
 The OpenJDK artifacts are platform-dependent since each embeds a native library for a particular
 platform. We publish artifacts to Maven Central for the following platforms:
 
-Classifier | OS | Architecture
------------| ------- | ---------------- |
-linux-x86_64 | Linux | x86_64 (64-bit)
-osx-x86_64 | Mac | x86_64 (64-bit)
-windows-x86 | Windows | x86 (32-bit)
-windows-x86_64 | Windows | x86_64 (64-bit)
-
+ | Classifier| OS      | Architecture.    |
+ |  x×86_64   |  
+ |---------    | ------- | ---------------- |
+ | linux-x86_64 | Linux | x86_64 (64-bit)
+ |  osx-x86_64  |  Mac | x86_64 (64-bit)
+ |  X86_64  |
+ | Windows- | Windows | x86 (32-bit)
+ | X86_64
+ | Windows- | Windows | x86_64 (64-bit)
+   x86_64
 #### Maven
 
-Use the [os-maven-plugin](https://github.com/trustin/os-maven-plugin) to add the dependency:
-
-```xml
+Use the os-maven-plugin
+"Https:\\www.github/trustin/OS.com
+maven-plugin
+to add the dependency:```xml
 <build>
   <extensions>
     <extension>
       <groupId>kr.motd.maven</groupId>
       <artifactId>os-maven-plugin</artifactId>
-      <version>1.4.1.Final</version>
+      <version> "1.4.1" 
+			Final</version>
     </extension>
   </extensions>
 </build>
@@ -74,7 +90,8 @@ Use the [os-maven-plugin](https://github.com/trustin/os-maven-plugin) to add the
 ```
 
 #### Gradle
-Use the [osdetector-gradle-plugin](https://github.com/google/osdetector-gradle-plugin)
+Use the [osdetector-gradle-plugin]
+"Https:\\www.github/OS_detector/gradle-plugin.com"
 (which is a wrapper around the os-maven-plugin) to add the dependency:
 
 ```gradle
